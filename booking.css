@@ -1,30 +1,29 @@
-/* Sidebar */
+
 .sidebar {
     width: 300px;
     height: 92vh;
-    background-color: pink;
+    background-color: #ff4081;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
-/* Logo */
+
 .logo img {
-    width: 100px;  /* Set logo size */
-    height: 100px;
-    border-radius: 50%; /* Make it circular */
-    object-fit: cover;  /* Ensure image fits properly */
+    width: 150px;  
+    height: 150px;
+    border-radius: 50%; 
+    object-fit: cover;  
 }
 
-/* Sidebar Title */
 h2 {
     color: black;
     font-size: 20px;
     margin-bottom: 20px;
 }
 
-/* Sidebar Items */
 .sidebar-item {
     width: 100%;
     padding: 10px;
@@ -38,13 +37,32 @@ h2 {
 }
 
 .sidebar-item:hover {
-    background-color: #db6d7f; /* Light pink */
+    background-color: #e91e63; 
 }
 
-/* Click effect - Turns blue when pressed */
-
-
-/* Hidden Sections */
 .hidden {
     display: none;
+}
+/* User Profile */
+.user-profile {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+/* Profile Picture */
+.user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Welcome Message */
+#welcomeMessage {
+    font-size: 18px;
+    font-weight: bold;
 }
