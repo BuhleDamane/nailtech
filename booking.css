@@ -38,14 +38,11 @@ h2 {
 }
 
 .sidebar-item:hover {
-    background-color: #ffc0cb; /* Light pink */
+    background-color: #db6d7f; /* Light pink */
 }
 
 /* Click effect - Turns blue when pressed */
-.sidebar-item:active {
-    background-color: blue;
-    color: white;
-}
+
 
 /* Hidden Sections */
 .hidden {
