@@ -10,62 +10,23 @@
 <body>
     <div class="container">
         <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <div class="logo">Nail Booking</div>
-            <nav>
-                <ul>
-                    <li class="dropdown">
-                        <button onclick="toggleBookingMenu()">📅 Booking Appointments</button>
-                        <ul id="booking-list" class="hidden">
-                            <li>No bookings yet</li>
-                        </ul>
-                    </li>
-                    <li><a href="profile.html">🙋 My Profile</a></li>
-                    <li class="settings">
-                        <button onclick="toggleSettings()">⚙️ Settings</button>
-                        <ul id="settings-menu" class="hidden">
-                            <li>Change Theme</li>
-                        </ul>
-                    </li>
-                    <li class="logout"><a href="index.html">🚪 Logout</a></li>
-                </ul>
-            </nav>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="content">
-            <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
-            <h2 class="welcome-message">Good day Buhle, how may we take your booking today? 😊</h2>
-            
-            <div class="booking-section">
-                <h3>Book Your Nail Appointment</h3>
-                <label for="nail-design">💅 Choose Nail Design:</label>
-                <select id="nail-design" onchange="updatePrice()">
-                    <option value="gel" data-price="250">Gel Nails - R250</option>
-                    <option value="stiletto" data-price="300">Stiletto - R300</option>
-                    <option value="coffin" data-price="280">Coffin - R280</option>
-                    <option value="french-tips" data-price="270">French Tips - R270</option>
-                    <option value="glitter" data-price="290">Glitter Nails - R290</option>
-                    <option value="classic" data-price="260">Classic Manicure - R260</option>
-                </select>
-                
-                <label for="booking-time">⏰ Choose Booking Time:</label>
-                <select id="booking-time">
-                    <option value="9am">9:00 AM</option>
-                    <option value="1030am">10:30 AM</option>
-                    <option value="12pm">12:00 PM</option>
-                    <option value="130pm">1:30 PM</option>
-                    <option value="3pm">3:00 PM</option>
-                    <option value="430pm">4:30 PM</option>
-                </select>
-
-                <label>💰 Booking Fee: R150</label>
-                <label id="full-price">💰 Full Price: R250</label>
-                
-                <button onclick="confirmBooking()">Confirm Booking</button>
-                <p id="payment-status"></p>
+        <div class="sidebar">
+            <div class="logo"><img src="images/Black and Pink Nail Studio Beauty Logo.png" alt=""></div>
+            <h2>Nail Booking</h2>
+        
+            <div id="bookingToggle" class="sidebar-item">Booking Appointment</div>
+            <div id="bookingDetails" class="hidden">No bookings yet</div>
+        
+            <div id="settingsToggle" class="sidebar-item">Settings</div>
+            <div id="settingsOptions" class="hidden">
+                <div class="sidebar-item">Change Theme</div>
+                <div class="sidebar-item">Account Settings</div>
+                <div class="sidebar-item">Logout</div>
             </div>
-        </main>
+        </div>
+        
+
+      
     </div>
 </body>
 </html>
