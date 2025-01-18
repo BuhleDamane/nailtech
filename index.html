@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="login.js"></script>
+</head>
+<body>
+    <div id="loginPopup" class="popup">
+        <!-- Welcome Message -->
+        <p class="welcome-message">👋 Welcome to Glamour Haven Booking!</p>
+        
+        <!-- Login Icon -->
+        <img src="images/Black and Pink Nail Studio Beauty Logo.png" alt="Login Icon" class="login-icon">
+
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <input type="text" id="clientName" placeholder="Your Name">
+        <button onclick="validateLogin()">Login</button>
+        <p id="loginMessage"></p>
+    </div>
+</body>
+</html>
