@@ -1,4 +1,4 @@
-
+/* Sidebar */
 .sidebar {
     width: 300px;
     height: 92vh;
@@ -7,15 +7,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
 }
 
-
 .logo img {
-    width: 150px;  
+    width: 150px;
     height: 150px;
-    border-radius: 50%; 
-    object-fit: cover;  
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 h2 {
@@ -37,32 +35,80 @@ h2 {
 }
 
 .sidebar-item:hover {
-    background-color: #e91e63; 
+    background-color: #e91e63;
 }
 
 .hidden {
     display: none;
 }
-/* User Profile */
-.user-profile {
+
+/* Header Section */
+/* Header Section */
+.header {
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top: 50px; /* Adjusted to make space for the profile */
+    left: 320px; /* Moves header away from sidebar */
+    right: 100px; /* Keeps space for profile */
     display: flex;
+    flex-direction: column; /* Stack the messages one above the other */
     align-items: center;
-    gap: 100px;
+    justify-content: center; /* Centers text properly */
+    width: calc(100% - 350px); /* Makes sure header fits between sidebar & profile */
+    text-align: center;
 }
 
-/* Profile Picture */
-.user-profile img {
-    width: 50px;
-    height: 50px;
+/* Welcome Message */
+#welcomeMessagePart1,
+#welcomeMessagePart2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: black;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid black; /* Cursor effect */
+    padding-right: 5px;
+    display: inline-block;
+    max-width: 100%;
+    margin: 5px 0; /* Adds space between the two messages */
+}
+
+
+
+/* Typing Animation (Letter by Letter) */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Apply Typing Effect */
+.typing {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap; /* Ensures the text doesn't wrap while typing */
+    animation: typing 4s steps(30, end) forwards, blink 0.8s infinite;
+}
+
+/* Profile Picture (Fixed to Top Right) */
+.profile-container {
+    position: fixed; /* Fix the profile picture in place */
+    top: 10px;
+    right: 20px;
+}
+
+#profilePicture {
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-/* Welcome Message */
-#welcomeMessage {
-    font-size: 18px;
-    font-weight: bold;
-}
