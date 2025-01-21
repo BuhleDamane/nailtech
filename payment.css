@@ -1,0 +1,130 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body */
+body {
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+/* Container for the content */
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Header styling */
+.payment-header {
+    background-color: #e91e63;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.payment-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Content section */
+.payment-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.ozow-form {
+    background-color: #fafafa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px #ff4081;
+}
+
+.ozow-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ozow-form label {
+    font-size: 16px;
+    color: #333;
+}
+
+.ozow-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.ozow-form input:focus {
+    border-color: #e91e63;
+    outline: none;
+}
+
+.pay-now-button {
+    background-color: #e91e63;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 8px
+}
+
+.pay-now-button:hover {
+    background-color: #ff4081;
+}
+
+.pay-now-button:focus {
+    outline: none;
+}
+
+/* Footer */
+.payment-footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+.payment-footer p {
+    margin: 0;
+}
+
+.payment-footer strong {
+    color: #e91e63;
+}
+
+/* Additional styling for mobile responsiveness */
+@media (max-width: 480px) {
+    .payment-header h1 {
+        font-size: 20px;
+    }
+
+    .ozow-form input {
+        font-size: 14px;
+    }
+
+    .pay-now-button {
+        font-size: 14px;
+    }
+}

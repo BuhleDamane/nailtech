@@ -54,3 +54,93 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 500); // Initial delay before typing starts
     }
 });
+
+// Show different payment options
+document.getElementById('bankTransfer').addEventListener('click', () => {
+    document.getElementById('banksDropdown').classList.remove('hidden');
+});
+
+document.getElementById('paypal').addEventListener('click', () => {
+    showPayPalForm();
+});
+
+document.getElementById('ozow').addEventListener('click', () => {
+    showOzowForm();
+});
+
+// Bank transfer - show bank options when clicked
+document.getElementById('banksList').addEventListener('change', (e) => {
+    // Simulate redirection to a page where card details are entered
+    showBankDetailsForm();
+});
+
+// Bank details form submission
+document.getElementById('bankForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    showPaymentConfirmation();
+});
+
+// Handle Payment Confirmation
+document.getElementById('confirmPayment').addEventListener('click', () => {
+    showLoading();
+    setTimeout(() => {
+        showSuccessMessage();
+    }, 5000);
+});
+
+// Cancel Payment
+document.getElementById('cancelPayment').addEventListener('click', () => {
+    resetPaymentSection();
+});
+
+// PayPal and Ozow forms
+function showPayPalForm() {
+    // Simple input for PayPal Email
+    const paypalForm = `
+        <h3>Enter your PayPal Email</h3>
+        <input type="email" id="paypalEmail" placeholder="Email Address" required />
+        <button id="paypalSubmit">Submit</button>
+    `;
+    document.getElementById('paymentFormContainer').innerHTML = paypalForm;
+    document.getElementById('paypalSubmit').addEventListener('click', confirmPayment);
+}
+
+function showOzowForm() {
+    // Simple input for Ozow Phone number
+    const ozowForm = `
+        <h3>Enter your Registered Phone Number</h3>
+        <input type="text" id="ozowPhoneNumber" placeholder="Phone Number" required />
+        <button id="ozowSubmit">Submit</button>
+    `;
+    document.getElementById('paymentFormContainer').innerHTML = ozowForm;
+    document.getElementById('ozowSubmit').addEventListener('click', confirmPayment);
+}
+
+function confirmPayment() {
+    showPaymentConfirmation();
+}
+
+function showLoading() {
+    document.getElementById('loadingAnimation').classList.remove('hidden');
+}
+
+function showSuccessMessage() {
+    document.getElementById('loadingAnimation').classList.add('hidden');
+    document.getElementById('paymentSuccess').classList.remove('hidden');
+    setTimeout(() => {
+        redirectToBooking();
+    }, 2000); // Redirect after 2 seconds
+}
+
+function redirectToBooking() {
+    // Reset the page and return to the clean booking container
+    window.location.reload(); // Or navigate to a new URL if needed
+}
+
+function resetPaymentSection() {
+    document.getElementById('paymentConfirmation').classList.add('hidden');
+    document.getElementById('banksDropdown').classList.add('hidden');
+    document.getElementById('bankDetailsForm').classList.add('hidden');
+    document.getElementById('paymentSuccess').classList.add('hidden');
+    document.getElementById('loadingAnimation').classList.add('hidden');
+}
