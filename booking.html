@@ -23,6 +23,12 @@
                 <div class="sidebar-item">Account Settings</div>
                 <div class="sidebar-item logout"><a href="index.html">Logout</a></div>
             </div>
+
+            <!-- New Sidebar Buttons -->
+            <div id="aboutUsButton" class="sidebar-item">About Us</div>
+            <div id="refundButton" class="sidebar-item">Refunds</div>
+            <div id="contactUsButton" class="sidebar-item">Contact Us</div>
+            
         </div>
 
         <div class="header">
@@ -77,7 +83,37 @@
                 </div>
             </div>
 
+            <!-- Confirm Booking Button -->
+            <div class="confirm-booking-container">
+                <button id="confirmBooking" class="confirm-booking-btn" disabled>Confirm Booking</button>
+            </div>
+
+            <!-- Social Media Icons (hidden by default) -->
+            <div id="socialMediaIcons" class="hidden">
+                <a href="#" class="social-icon">FB</a>
+                <a href="#" class="social-icon">IG</a>
+                <a href="#" class="social-icon">TW</a>
+                <a href="#" class="social-icon">LN</a>
+            </div>
+
+        </div>
+
         <audio id="typingSound" src="sounds/typing.mp3"></audio> <!-- Typing Sound -->
     </div>
+
+    <script>
+        // Event listeners for sidebar buttons
+        document.getElementById('contactUsButton').addEventListener('click', function() {
+            window.location.href = 'contactus.html';  // Redirect to Contact Us Page
+        });
+
+        document.getElementById('refundButton').addEventListener('click', function() {
+            window.location.href = 'refunds.html';  // Redirect to Refunds Page
+        });
+
+        document.getElementById('aboutUsButton').addEventListener('click', function() {
+            window.location.href = 'aboutus.html';  // Redirect to About Us Page
+        });
+    </script>
 </body>
 </html>

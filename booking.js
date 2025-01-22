@@ -161,7 +161,6 @@ function showPersonalizedGreeting() {
     }
 }
 
-// Function to type a message with a delay
 function typeMessage(element, message, delay) {
     let i = 0;
     const typingInterval = setInterval(() => {

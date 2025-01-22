@@ -1,7 +1,7 @@
 /* Sidebar */
 .sidebar {
     width: 300px;
-    height: 110vh;
+    height: 750px;
     background-color: #ff4081;
     padding: 20px;
     display: flex;
@@ -69,7 +69,7 @@ h2 {
     border-right: 2px solid black; 
     padding-right: 5px;
     display: inline-block;
-    max-width: 100%;
+    max-width: 65%;
     margin: 5px 0;
 }
 
@@ -115,8 +115,8 @@ h2 {
 
 
 .booking-container {
-    position: relative;
-    top:-530px; 
+    position: absolute;
+    top: 150px; 
     left: 570px; 
     padding: 15px;
     background-color: #fff;
@@ -124,7 +124,7 @@ h2 {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     width: calc(60% - 300px); 
     margin-top: 10px;
-    height: 500px;
+    height: 550px;
 }
 
 .booking-container h2 {
@@ -326,4 +326,28 @@ h2 {
 }
 .date-time-section h3{
     text-align: center;
+}
+.confirm-booking-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.confirm-booking-btn {
+    padding: 10px 20px;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.confirm-booking-btn:hover {
+    background-color: #e91e63;
+}
+
+.confirm-booking-btn:disabled {
+    background-color: #e91e63;
+    cursor: not-allowed;
 }
