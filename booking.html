@@ -67,55 +67,15 @@
             <div class="payment-container">
                 <h2>Select Payment Option</h2>
                 <div class="payment-option" id="bankTransfer">
-                    <p>Select Bank Transfer</p>
+                    <p><a href="bank.html">Select Bank Transfer</a></p>
                 </div>
                 <div class="payment-option" id="paypal">
-                    <p>Pay with PayPal</p>
+                    <p><a href="paypal.html">Pay with PayPal</a></p>
                 </div>
                 <div class="payment-option" id="ozow">
-                    <p>Pay with Ozow</p>
+                    <p><a href="ozow.html">Pay with Ozow</a></p>
                 </div>
             </div>
-
-            <!-- Bank Transfer Banks Dropdown -->
-            <div id="banksDropdown" class="hidden">
-                <select id="banksList">
-                    <option value="ABSA">ABSA</option>
-                    <option value="FNB">FNB</option>
-                    <option value="StandardBank">Standard Bank</option>
-                    <option value="Nedbank">Nedbank</option>
-                    <option value="Capitec">Capitec</option>
-                </select>
-            </div>
-
-            <!-- Input Form for Bank Details (When Bank is Selected) -->
-            <div id="bankDetailsForm" class="hidden">
-                <h3>Enter Card Details</h3>
-                <form id="bankForm">
-                    <input type="text" id="cardNumber" placeholder="Card Number" required />
-                    <input type="text" id="cvv" placeholder="CVV" required />
-                    <input type="text" id="expiryDate" placeholder="Expiry Date" required />
-                    <button type="submit">Done</button>
-                </form>
-            </div>
-
-            <!-- Payment Confirmation -->
-            <div id="paymentConfirmation" class="hidden">
-                <p>Confirm that you are paying R150.00 to Glamour Haven Nail Salon</p>
-                <button id="confirmPayment">Confirm</button>
-                <button id="cancelPayment">Cancel</button>
-            </div>
-
-            <!-- Loading Animation -->
-            <div id="loadingAnimation" class="hidden">
-                <p>Processing payment...</p>
-            </div>
-
-            <!-- Payment Success Message -->
-            <div id="paymentSuccess" class="hidden">
-                <p>Payment Successful!</p>
-            </div>
-        </div>
 
         <audio id="typingSound" src="sounds/typing.mp3"></audio> <!-- Typing Sound -->
     </div>

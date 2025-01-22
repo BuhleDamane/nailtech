@@ -12,13 +12,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Show the personalized greeting with typing animation
     showPersonalizedGreeting();
-    
-    // Typing welcome message logic (this is now handled by showPersonalizedGreeting)
+
+    // Typing welcome message logic
     const welcomeMessagePart1 = document.getElementById("welcomeMessagePart1");
     const welcomeMessagePart2 = document.getElementById("welcomeMessagePart2");
     const username = localStorage.getItem("clientName") || "User";
 
-    // Split the message into two parts (now handled by personalized function)
     const firstMessage = `Good day, ${username}!`;
     const secondMessage = `How may we take your booking today? 😊`;
 
@@ -32,16 +31,15 @@ document.addEventListener("DOMContentLoaded", function() {
             element.textContent += message.charAt(index);
             index++;
             typingSound.play();  // Play typing sound
-            setTimeout(() => typeMessage(message, element, index, callback), 50); // Adjust speed if needed
+            setTimeout(() => typeMessage(message, element, index, callback), 50);
         } else {
             element.style.borderRight = "none"; // Remove cursor effect
             callback();  // Callback to trigger next action
         }
     }
 
-    // Prevent multiple typing animations
     if (!welcomeMessagePart1.hasAttribute('data-typing') && !welcomeMessagePart2.hasAttribute('data-typing')) {
-        welcomeMessagePart1.setAttribute('data-typing', 'true');  // Mark that typing has started
+        welcomeMessagePart1.setAttribute('data-typing', 'true');
         welcomeMessagePart2.setAttribute('data-typing', 'true');
 
         // Type the first message
@@ -52,9 +50,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     typeMessage(secondMessage, welcomeMessagePart2, index2, function() {
                         // Both messages are now typed
                     });
-                }, 500);  // Delay before second message starts typing
+                }, 500);
             });
-        }, 500); // Initial delay before typing starts
+        }, 500);
     }
 });
 
@@ -98,7 +96,6 @@ document.getElementById('cancelPayment').addEventListener('click', () => {
 
 // PayPal and Ozow forms
 function showPayPalForm() {
-    // Simple input for PayPal Email
     const paypalForm = `
         <h3>Enter your PayPal Email</h3>
         <input type="email" id="paypalEmail" placeholder="Email Address" required />
@@ -109,7 +106,6 @@ function showPayPalForm() {
 }
 
 function showOzowForm() {
-    // Simple input for Ozow Phone number
     const ozowForm = `
         <h3>Enter your Registered Phone Number</h3>
         <input type="text" id="ozowPhoneNumber" placeholder="Phone Number" required />
@@ -136,8 +132,7 @@ function showSuccessMessage() {
 }
 
 function redirectToBooking() {
-    // Reset the page and return to the clean booking container
-    window.location.reload(); // Or navigate to a new URL if needed
+    window.location.reload();
 }
 
 function resetPaymentSection() {
@@ -150,19 +145,15 @@ function resetPaymentSection() {
 
 // Function to display the personalized greeting
 function showPersonalizedGreeting() {
-    // Retrieve the username from localStorage
     const username = localStorage.getItem('username');
 
-    // Check if the username exists in localStorage
     if (username) {
-        // Display the personalized message with a typing animation
         const welcomeMessagePart1 = document.getElementById('welcomeMessagePart1');
         const welcomeMessagePart2 = document.getElementById('welcomeMessagePart2');
 
         const message1 = `Welcome,`;
         const message2 = `It's good to see you here, ${username}!`;
 
-        // Type the welcome message
         typeMessage(welcomeMessagePart1, message1, 100);
         setTimeout(() => {
             typeMessage(welcomeMessagePart2, message2, 100);
