@@ -10,12 +10,15 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("settingsOptions").classList.toggle("hidden");
     });
 
-    // Typing welcome message
+    // Show the personalized greeting with typing animation
+    showPersonalizedGreeting();
+    
+    // Typing welcome message logic (this is now handled by showPersonalizedGreeting)
     const welcomeMessagePart1 = document.getElementById("welcomeMessagePart1");
     const welcomeMessagePart2 = document.getElementById("welcomeMessagePart2");
-    const username = localStorage.getItem("username") || "User";
-    
-    // Split the message into two parts
+    const username = localStorage.getItem("clientName") || "User";
+
+    // Split the message into two parts (now handled by personalized function)
     const firstMessage = `Good day, ${username}!`;
     const secondMessage = `How may we take your booking today? 😊`;
 
@@ -143,4 +146,39 @@ function resetPaymentSection() {
     document.getElementById('bankDetailsForm').classList.add('hidden');
     document.getElementById('paymentSuccess').classList.add('hidden');
     document.getElementById('loadingAnimation').classList.add('hidden');
+}
+
+// Function to display the personalized greeting
+function showPersonalizedGreeting() {
+    // Retrieve the username from localStorage
+    const username = localStorage.getItem('username');
+
+    // Check if the username exists in localStorage
+    if (username) {
+        // Display the personalized message with a typing animation
+        const welcomeMessagePart1 = document.getElementById('welcomeMessagePart1');
+        const welcomeMessagePart2 = document.getElementById('welcomeMessagePart2');
+
+        const message1 = `Welcome,`;
+        const message2 = `It's good to see you here, ${username}!`;
+
+        // Type the welcome message
+        typeMessage(welcomeMessagePart1, message1, 100);
+        setTimeout(() => {
+            typeMessage(welcomeMessagePart2, message2, 100);
+        }, message1.length * 100);
+    }
+}
+
+// Function to type a message with a delay
+function typeMessage(element, message, delay) {
+    let i = 0;
+    const typingInterval = setInterval(() => {
+        if (i < message.length) {
+            element.textContent += message.charAt(i);
+            i++;
+        } else {
+            clearInterval(typingInterval);
+        }
+    }, delay);
 }

@@ -9,16 +9,18 @@
 </head>
 <body>
     <div id="loginPopup" class="popup">
-      
         <p class="welcome-message">👋 Welcome to Glamour Haven Booking!</p>
-       
         <img src="images/Black and Pink Nail Studio Beauty Logo.png" alt="Login Icon" class="login-icon">
-
         <h2>Login</h2>
-        <input type="text" id="username" placeholder="Username" required>
-        <input type="password" id="password" placeholder="Password" required>
-        <input type="text" id="clientName" placeholder="Your Name" required>
-        <button onclick="validateLogin()">Login</button>
+        
+        <!-- Use the form for submitting credentials -->
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="text" id="clientName"  placeholder="Your Name" required>
+            <button type="submit">Login</button>
+        </form>
+        
         <p id="loginMessage"></p>
     </div>
 </body>

@@ -9,27 +9,39 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 3000);
 });
 
+// Get the form element and the input fields
+const loginForm = document.getElementById('loginForm');
+const usernameInput = document.getElementById('username');
+const passwordInput = document.getElementById('password');
+const clientNameInput = document.getElementById('clientName');
+const loginMessage = document.getElementById("loginMessage");
+
 // Function to validate login credentials
-function validateLogin() {
-    const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
-    const clientName = document.getElementById("clientName").value.trim();
-    const loginMessage = document.getElementById("loginMessage");
+loginForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevents the page from reloading
+
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value.trim();
+    const clientName = clientNameInput.value.trim();
+
+    // Capitalize the first letter of the client's name
+    const capitalizedClientName = clientName.charAt(0).toUpperCase() + clientName.slice(1);
 
     // Display loading message
     loginMessage.innerHTML = "⏳ Logging in...";
     loginMessage.className = "loading";
 
     setTimeout(() => {
+        // Check if the credentials are correct
         if (username === "admin" && password === "1234") {
-            // If login is successful, show success message with user's name
-            loginMessage.innerHTML = `✅ Success! Welcome, ${clientName}!`;
+            // If login is successful, show success message with user's capitalized name
+            loginMessage.innerHTML = `✅ Success! Welcome, ${capitalizedClientName}!`;
             loginMessage.className = "success";
 
-            // Store client name in localStorage for later use
-            localStorage.setItem("clientName", clientName);
+            // Store the capitalized client name in localStorage for later use
+            localStorage.setItem("clientName", capitalizedClientName);
 
-            // Redirect to booking page after 2 seconds
+            // Redirect to the booking page after 2 seconds
             setTimeout(() => {
                 window.location.href = "booking.html";
             }, 2000);
@@ -39,4 +51,4 @@ function validateLogin() {
             loginMessage.className = "error";
         }
     }, 2000); // Simulate loading delay
-}
+});
