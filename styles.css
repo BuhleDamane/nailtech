@@ -107,3 +107,17 @@ button:hover {
         transform: translateY(0);
     }
 }
+.demo-link {
+    display:block;
+    justify-content: center;
+    color: rgb(77, 167, 236);
+    text-decoration: none;
+    font-size: 14px;
+    cursor: not-allowed;
+    position: relative;
+    
+}
+.demo-links-container{
+    display: flex;
+    justify-content: space-between;
+}
