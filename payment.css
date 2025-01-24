@@ -1,4 +1,4 @@
-/* General Reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
     font-family: Arial, sans-serif;
 }
 
-/* Body */
+
 body {
     background-color: #f4f4f4;
     display: flex;
@@ -16,7 +16,7 @@ body {
     color: #333;
 }
 
-/* Container for the content */
+
 .container {
     width: 90%;
     max-width: 600px;
@@ -27,7 +27,7 @@ body {
     overflow: hidden;
 }
 
-/* Header styling */
+
 .payment-header {
     background-color: #e91e63;
     color: white;
@@ -40,7 +40,7 @@ body {
     font-size: 24px;
 }
 
-/* Content section */
+
 .payment-content {
     padding: 20px;
     display: flex;

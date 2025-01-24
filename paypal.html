@@ -28,7 +28,19 @@
             <p>By submitting, you agree to pay <strong>R150.00</strong> to Glamour Haven Nail Salon for your booking.</p>
         </footer>
     </div>
-
+    <script>
+        
+        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+            event.preventDefault();  
+    
+    
+            
+            setTimeout(function() {
+                window.location.href = './booking.html?paymentMethod=PayPal';  
+            }, 1000);  
+        });
+    </script>
+    
     <script src="payment.js"></script>
 </body>
 </html>

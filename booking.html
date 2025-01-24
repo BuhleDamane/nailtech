@@ -9,7 +9,6 @@
 </head>
 <body>
     <div class="container">
-        
         <div class="sidebar">
             <div class="logo"><img src="images/Black and Pink Nail Studio Beauty Logo.png" alt=""></div>
             <h2>Nail Booking</h2>
@@ -24,7 +23,6 @@
                 <div class="sidebar-item logout"><a href="index.html">Logout</a></div>
             </div>
 
-            <!-- New Sidebar Buttons -->
             <div id="refundButton" class="sidebar-item"><a href="refunds.html">Refunds</a></div>
             <div id="contactUsButton" class="sidebar-item"><a href="contact.html">Contact Us</a></div>
             <div id="aboutUsButton"  class="sidebar-item"><a  href="about.html" >About Us</a></div>
@@ -35,26 +33,21 @@
             <p id="welcomeMessagePart1" class="typing"></p>
             <p id="welcomeMessagePart2" class="typing"></p>
             
-            <!-- Profile Picture in a fixed position -->
             <div class="profile-container">
                 <img src="images/buhle.jpg" alt="User Profile" id="profilePicture">
             </div>
         </div>
 
-        <!-- New Booking Section -->
         <div class="booking-container">
             <h2>Let us take your booking</h2>
             <p class="booking-info">Booking/Deposit Fee: <span class="fee-amount">R150.00</span> for all nails</p>
             
-            <!-- Date and Time Selection Section -->
             <div class="date-time-section">
                 <h3>Select Your Appointment Date and Time</h3>
                 
-                <!-- Date Picker -->
                 <label for="appointmentDate">Choose Date:</label>
                 <input type="date" id="appointmentDate" name="appointmentDate" required>
                 
-                <!-- Time Picker -->
                 <label for="appointmentTime">Choose Time:</label>
                 <select id="appointmentTime" required>
                     <option value="">Select Time Slot</option>
@@ -69,26 +62,23 @@
                 </select>
             </div>
 
-            <!-- Payment Options Container -->
             <div class="payment-container">
                 <h2>Select Payment Option</h2>
                 <div class="payment-option" id="bankTransfer">
-                    <p><a href="bank.html">Select Bank Transfer</a></p>
+                    <p><a href="bank.html" id="bankTransferLink">Select Bank Transfer</a></p>
                 </div>
                 <div class="payment-option" id="paypal">
-                    <p><a href="paypal.html">Pay with PayPal</a></p>
+                    <p><a href="paypal.html" id="paypalLink">Pay with PayPal</a></p>
                 </div>
                 <div class="payment-option" id="ozow">
-                    <p><a href="ozow.html">Pay with Ozow</a></p>
+                    <p><a href="ozow.html" id="ozowLink">Pay with Ozow</a></p>
                 </div>
             </div>
 
-            <!-- Confirm Booking Button -->
             <div class="confirm-booking-container">
                 <button id="confirmBooking" class="confirm-booking-btn" disabled>Confirm Booking</button>
             </div>
 
-            <!-- Social Media Icons (hidden by default) -->
             <div id="socialMediaIcons" class="hidden">
                 <a href="#" class="social-icon">FB</a>
                 <a href="#" class="social-icon">IG</a>
@@ -97,23 +87,91 @@
             </div>
 
         </div>
-
-        <audio id="typingSound" src="sounds/typing.mp3"></audio> <!-- Typing Sound -->
+        <audio id="typingSound" src="sounds/typing.mp3"></audio> 
     </div>
-
     <script>
-        // Event listeners for sidebar buttons
-        document.getElementById('contactUsButton').addEventListener('click', function() {
-            window.location.href = 'contactus.html';  // Redirect to Contact Us Page
-        });
+       document.addEventListener('DOMContentLoaded', function() {
+   
+    function updatePaymentStatus() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const paymentMethod = urlParams.get('paymentMethod');
+        
+        if (paymentMethod) {
+            const paymentLinks = {
+                Ozow: document.getElementById('ozowLink'),
+                PayPal: document.getElementById('paypalLink'),
+                Bank: document.getElementById('bankTransferLink')
+            };
+    
+            if (paymentLinks[paymentMethod]) {
+                paymentLinks[paymentMethod].textContent = `${paymentMethod} Payment Received`;  
+            }
+        }
+    }
 
-        document.getElementById('refundButton').addEventListener('click', function() {
-            window.location.href = 'refunds.html';  // Redirect to Refunds Page
-        });
+  
+    updatePaymentStatus();
 
-        document.getElementById('aboutUsButton').addEventListener('click', function() {
-            window.location.href = 'aboutus.html';  // Redirect to About Us Page
-        });
+  
+    const appointmentDateInput = document.getElementById('appointmentDate');
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0'); 
+    
+   
+    const minDate = `${year}-${month}-${day}`;
+    appointmentDateInput.setAttribute('min', minDate);
+
+   
+    const appointmentTimeInput = document.getElementById('appointmentTime');
+    const confirmBookingButton = document.getElementById('confirmBooking');
+    const bookingDetails = document.getElementById('bookingDetails');
+    const bankTransferLink = document.getElementById('bankTransferLink');
+    const ozowLink = document.getElementById('ozowLink');
+    const paypalLink = document.getElementById('paypalLink');
+
+    let isPaymentReceived = false;
+    let selectedDate = '';
+    let selectedTime = '';
+
+  
+    appointmentDateInput.addEventListener('change', function() {
+        selectedDate = appointmentDateInput.value;
+        checkEnableBooking();
+    });
+
+    appointmentTimeInput.addEventListener('change', function() {
+        selectedTime = appointmentTimeInput.value;
+        checkEnableBooking();
+    });
+
+    function checkEnableBooking() {
+        if (selectedDate && selectedTime && isPaymentReceived) {
+            confirmBookingButton.disabled = false;
+        } else {
+            confirmBookingButton.disabled = true;
+        }
+    }
+
+    if (bankTransferLink.textContent.includes("Payment Received") ||
+        ozowLink.textContent.includes("Payment Received") ||
+        paypalLink.textContent.includes("Payment Received")) {
+        isPaymentReceived = true;
+        checkEnableBooking();
+    }
+
+    confirmBookingButton.addEventListener('click', function() {
+        confirmBookingButton.textContent = 'Wait...'; 
+        setTimeout(function() {
+            alert('Booking Confirmed');
+            bookingDetails.textContent = `Booking confirmed for: ${selectedDate} at ${selectedTime}`;
+            bookingDetails.classList.remove('hidden');
+            confirmBookingButton.textContent = 'Confirm Booking'; 
+        }, 2000); 
+    });
+});
+
     </script>
 </body>
 </html>

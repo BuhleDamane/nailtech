@@ -14,11 +14,11 @@
 
         <section class="payment-content">
             <div class="ozow-form">
-                <form action="#" method="POST">
+                <form id="paymentForm" action="#" method="POST">
                     <label for="ozow-phone">Enter Your Registered Phone Number</label>
                     <input type="tel" id="ozow-phone" name="ozow-phone" required placeholder="082 123 4567">
 
-                    <button type="submit" class="pay-now-button">Submit Payment</button>
+                    <button type="submit" class="pay-now-button" id="submitPaymentBtn">Submit Payment</button>
                 </form>
             </div>
         </section>
@@ -28,7 +28,25 @@
         </footer>
     </div>
 
-    <script src="payment.js"></script>
+    <script>
+        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+        
+          
+            const submitButton = document.querySelector('.pay-now-button');
+            
+          
+            submitButton.textContent = 'Processing...';
+            submitButton.disabled = true;
+        
+        setTimeout(function() {
+            
+            alert('Payment Successful!');
+    
+                window.location.href = './booking.html?paymentMethod=Ozow';  
+            }, 3000); 
+        });
+        
+    </script>
 </body>
 </html>
-

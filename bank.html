@@ -27,7 +27,7 @@
             </div>
 
             <div class="payment-form">
-                <form action="#" method="POST">
+                <form action="#" method="POST" id="paymentForm">
                     <label for="account-number">Account Number</label>
                     <input type="text" id="account-number" name="account-number" required>
 
@@ -37,7 +37,7 @@
                     <label for="expiry-date">Card Expiry Date</label>
                     <input type="month" id="expiry-date" name="expiry-date" required>
 
-                    <button type="submit" class="pay-now-button">Submit Payment</button>
+                    <button type="submit" class="pay-now-button" id="submitPaymentBtn">Submit Payment</button>
                 </form>
             </div>
         </section>
@@ -46,7 +46,27 @@
             <p>By submitting, you agree to pay <strong>R150.00</strong> to Glamour Haven Nail Salon for your booking.</p>
         </footer>
     </div>
-
+<script>
+    document.getElementById('paymentForm').addEventListener('submit', function(event) {
+        event.preventDefault();  
+    
+        const submitButton = document.querySelector('.pay-now-button');
+    
+       
+        submitButton.textContent = 'Processing...';
+        submitButton.disabled = true;
+    
+       
+        setTimeout(function() {
+        
+           alert('Payment Successful!');
+           
+            window.location.href = './booking.html?paymentMethod=Bank';
+           
+        }, 1000); 
+    });
+    
+</script>
     <script src="payment.js"></script>
 </body>
 </html>

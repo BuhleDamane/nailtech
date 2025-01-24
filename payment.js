@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () { 
     const paymentForm = document.querySelector('form');
     const submitButton = document.querySelector('.pay-now-button');
     const accountNumberInput = document.getElementById('account-number');
@@ -8,8 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (paymentForm) {
         paymentForm.addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent default form submission
+            event.preventDefault(); 
 
+            
             if (paypalEmailInput) {
                 const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
                 if (!emailPattern.test(paypalEmailInput.value)) {
@@ -19,14 +20,14 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             if (ozowPhoneInput) {
-                ozowPhoneInput.value = ozowPhoneInput.value.replace(/\D/g, ''); // Remove non-numeric characters
+                ozowPhoneInput.value = ozowPhoneInput.value.replace(/\D/g, ''); 
                 if (ozowPhoneInput.value.length !== 10) {
                     alert('Phone number must be exactly 10 digits.');
                     return;
                 }
             }
 
-            // Validate account number: must be between 13 and 18 digits and allow only numbers
+           
             if (accountNumberInput) {
                 accountNumberInput.value = accountNumberInput.value.replace(/\D/g, '');
                 if (accountNumberInput.value.length < 13 || accountNumberInput.value.length > 18) {
@@ -37,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
 
-            // Validate CVV: must be exactly 3 digits
+           
             if (cvvInput) {
                 cvvInput.value = cvvInput.value.replace(/\D/g, '');
                 if (cvvInput.value.length < 3) {
@@ -46,17 +47,27 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
 
-            // Show processing text
+          
             submitButton.textContent = 'Processing...';
             submitButton.disabled = true;
 
+            
             setTimeout(() => {
                 alert('Payment Successful!');
-                window.location.href = 'booking.html';
-            }, 3000); // Simulate processing delay
+
+               
+                if (document.body.contains(document.getElementById('ozow-phone'))) {
+                    window.location.href = 'booking.html?paymentMethod=Ozow';
+                } else if (document.body.contains(document.getElementById('paypal-email'))) {
+                    window.location.href = 'booking.html?paymentMethod=PayPal';
+                } else {
+                    window.location.href = 'booking.html?paymentMethod=Bank';
+                }
+            }, 3000);
         });
     }
 
+    
     if (accountNumberInput) {
         accountNumberInput.addEventListener('input', function () {
             accountNumberInput.value = accountNumberInput.value.replace(/\D/g, '');
@@ -68,11 +79,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+   
     if (cvvInput) {
         cvvInput.addEventListener('input', function () {
             cvvInput.value = cvvInput.value.replace(/\D/g, '');
             if (cvvInput.value.length > 3) {
-                cvvInput.value = cvvInput.value.slice(0, 3); // Truncate if more than 3 digits
+                cvvInput.value = cvvInput.value.slice(0, 3); 
             }
         });
     }

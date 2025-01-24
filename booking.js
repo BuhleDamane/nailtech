@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOMContentLoaded triggered");
 
-    // Toggle visibility for booking and settings sections
+   
     document.getElementById("bookingToggle").addEventListener("click", function() {
         document.getElementById("bookingDetails").classList.toggle("hidden");
     });
@@ -10,10 +10,9 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("settingsOptions").classList.toggle("hidden");
     });
 
-    // Show the personalized greeting with typing animation
+   
     showPersonalizedGreeting();
 
-    // Typing welcome message logic
     const welcomeMessagePart1 = document.getElementById("welcomeMessagePart1");
     const welcomeMessagePart2 = document.getElementById("welcomeMessagePart2");
     const username = localStorage.getItem("clientName") || "User";
@@ -25,16 +24,15 @@ document.addEventListener("DOMContentLoaded", function() {
     let index2 = 0;
     const typingSound = document.getElementById("typingSound");
 
-    // Function to type out a message
     function typeMessage(message, element, index, callback) {
         if (index < message.length) {
             element.textContent += message.charAt(index);
             index++;
-            typingSound.play();  // Play typing sound
+            typingSound.play();  
             setTimeout(() => typeMessage(message, element, index, callback), 50);
         } else {
-            element.style.borderRight = "none"; // Remove cursor effect
-            callback();  // Callback to trigger next action
+            element.style.borderRight = "none"; 
+            callback(); 
         }
     }
 
@@ -42,13 +40,12 @@ document.addEventListener("DOMContentLoaded", function() {
         welcomeMessagePart1.setAttribute('data-typing', 'true');
         welcomeMessagePart2.setAttribute('data-typing', 'true');
 
-        // Type the first message
         setTimeout(() => {
             typeMessage(firstMessage, welcomeMessagePart1, index1, function() {
-                // After first message is done, type the second message
+              
                 setTimeout(() => {
                     typeMessage(secondMessage, welcomeMessagePart2, index2, function() {
-                        // Both messages are now typed
+                      
                     });
                 }, 500);
             });
@@ -56,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-// Show different payment options
+
 document.getElementById('bankTransfer').addEventListener('click', () => {
     document.getElementById('banksDropdown').classList.remove('hidden');
 });
@@ -69,19 +66,17 @@ document.getElementById('ozow').addEventListener('click', () => {
     showOzowForm();
 });
 
-// Bank transfer - show bank options when clicked
+
 document.getElementById('banksList').addEventListener('change', (e) => {
-    // Simulate redirection to a page where card details are entered
+   
     showBankDetailsForm();
 });
 
-// Bank details form submission
 document.getElementById('bankForm').addEventListener('submit', (e) => {
     e.preventDefault();
     showPaymentConfirmation();
 });
 
-// Handle Payment Confirmation
 document.getElementById('confirmPayment').addEventListener('click', () => {
     showLoading();
     setTimeout(() => {
@@ -89,12 +84,10 @@ document.getElementById('confirmPayment').addEventListener('click', () => {
     }, 5000);
 });
 
-// Cancel Payment
 document.getElementById('cancelPayment').addEventListener('click', () => {
     resetPaymentSection();
 });
 
-// PayPal and Ozow forms
 function showPayPalForm() {
     const paypalForm = `
         <h3>Enter your PayPal Email</h3>
@@ -128,7 +121,7 @@ function showSuccessMessage() {
     document.getElementById('paymentSuccess').classList.remove('hidden');
     setTimeout(() => {
         redirectToBooking();
-    }, 2000); // Redirect after 2 seconds
+    }, 2000); 
 }
 
 function redirectToBooking() {
@@ -143,7 +136,6 @@ function resetPaymentSection() {
     document.getElementById('loadingAnimation').classList.add('hidden');
 }
 
-// Function to display the personalized greeting
 function showPersonalizedGreeting() {
     const username = localStorage.getItem('username');
 
