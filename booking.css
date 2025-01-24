@@ -9,9 +9,8 @@
     align-items: center;
     position: fixed;
     top: 0;
-    left: -300px; /* Initially hidden off-screen */
     transition: left 0.3s ease-in-out;
-    z-index: 100; /* Make sure the sidebar is above other content */
+    z-index: 100; 
 }
 
 .logo img {
@@ -52,7 +51,7 @@ h2 {
     background-color: #e91e63;
 }
 
-/* Hidden elements */
+
 .hidden {
     display: none;
 }
@@ -63,10 +62,10 @@ h2 {
     position: fixed;
     top: 20px;
     left: 20px;
-    z-index: 101; /* Make sure it's above the sidebar */
+    z-index: 101; 
+    
 }
 
-/* Close Icon inside Sidebar */
 #closeSidebar {
     position: absolute;
     top: 20px;
@@ -76,19 +75,16 @@ h2 {
     cursor: pointer;
 }
 
-/* Media Query for Large Screens (Sidebar always visible) */
 @media (min-width: 768px) {
-    /* Sidebar should always be visible */
+    
     .sidebar {
         left: 0;
     }
 
-    /* Hamburger icon should be hidden on larger screens */
     #hamburger {
         display: none;
     }
 
-    /* Close icon should be hidden on larger screens */
     #closeSidebar {
         display: none;
     }
@@ -397,15 +393,4 @@ h2 {
 .confirm-booking-btn:disabled {
     background-color: #e91e63;
     cursor: not-allowed;
-}
-@media (max-width: 767px) {
-    /* Sidebar is hidden by default */
-    .sidebar {
-        left: -350px; /* Sidebar is hidden */
-    }
-
-    /* Hamburger icon should be visible on small screens */
-    #hamburger {
-        display: block;
-    }
 }

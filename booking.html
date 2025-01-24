@@ -10,14 +10,9 @@
 </head>
 <body>
     <div class="container">
-  <!-- Hamburger Icon for Small Screens -->
-<i class="fas fa-bars" id="hamburger" onclick="toggleSidebar()"></i>
-
-<!-- Sidebar -->
+  
 <div id="sidebar" class="sidebar">
-    <!-- Close Icon inside Sidebar -->
-    <i class="fas fa-times" id="closeSidebar" onclick="toggleSidebar()"></i>
-
+    
     <div class="logo">
         <img src="images/Black and Pink Nail Studio Beauty Logo.png" alt="Logo">
     </div>
@@ -126,10 +121,9 @@
                 }
             }
         
-            // Update the payment status on page load
             updatePaymentStatus();
         
-            // Set the minimum appointment date to today's date
+          
             const appointmentDateInput = document.getElementById('appointmentDate');
             const today = new Date();
             const year = today.getFullYear();
@@ -150,7 +144,7 @@
             let selectedDate = '';
             let selectedTime = '';
         
-            // Update the status when the date or time is changed
+          
             appointmentDateInput.addEventListener('change', function() {
                 selectedDate = appointmentDateInput.value;
                 checkEnableBooking();
@@ -161,7 +155,7 @@
                 checkEnableBooking();
             });
         
-            // Enable/Disable the booking button based on payment and time selection
+         
             function checkEnableBooking() {
                 if (selectedDate && selectedTime && isPaymentReceived) {
                     confirmBookingButton.disabled = false;
@@ -169,8 +163,7 @@
                     confirmBookingButton.disabled = true;
                 }
             }
-        
-            // Check payment status on page load and enable booking button
+      
             if (bankTransferLink.textContent.includes("Payment Received") ||
                 ozowLink.textContent.includes("Payment Received") ||
                 paypalLink.textContent.includes("Payment Received")) {
@@ -178,7 +171,6 @@
                 checkEnableBooking();
             }
         
-            // Handle booking confirmation
             confirmBookingButton.addEventListener('click', function() {
                 confirmBookingButton.textContent = 'Wait...'; 
                 setTimeout(function() {
@@ -189,7 +181,6 @@
                 }, 2000); 
             });
         
-            // Attach the toggleSidebar function to the hamburger and close icons
             const hamburger = document.getElementById("hamburger");
             const closeSidebar = document.getElementById("closeSidebar");
         
