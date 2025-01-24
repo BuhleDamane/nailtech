@@ -33,7 +33,7 @@
     <div id="aboutUsButton" class="sidebar-item"><a href="about.html">About Us</a></div>
 </div>
 
-
+<div class="main-content">
         <div class="header">
             <p id="welcomeMessagePart1" class="typing"></p>
             <p id="welcomeMessagePart2" class="typing"></p>
@@ -94,16 +94,16 @@
         </div>
         <audio id="typingSound" src="sounds/typing.mp3"></audio> 
     </div>
+    </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
    
-            // Toggle Sidebar Function
+
             function toggleSidebar() {
                 const sidebar = document.getElementById("sidebar");
-                sidebar.style.left = sidebar.style.left === "0px" ? "-300px" : "0px"; // Toggle between open and closed
+                sidebar.style.left = sidebar.style.left === "0px" ? "-300px" : "0px";
             }
         
-            // Update payment status based on the URL parameters
             function updatePaymentStatus() {
                 const urlParams = new URLSearchParams(window.location.search);
                 const paymentMethod = urlParams.get('paymentMethod');
