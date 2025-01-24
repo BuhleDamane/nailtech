@@ -401,7 +401,7 @@ h2 {
 @media (max-width: 767px) {
     /* Sidebar is hidden by default */
     .sidebar {
-        left: -300px; /* Sidebar is hidden */
+        left: -350px; /* Sidebar is hidden */
     }
 
     /* Hamburger icon should be visible on small screens */
