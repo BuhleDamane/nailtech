@@ -1,12 +1,17 @@
 /* Sidebar */
 .sidebar {
     width: 300px;
-    height: 700px;
+    height: 100%;
     background-color: #ff4081;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: -300px; /* Initially hidden off-screen */
+    transition: left 0.3s ease-in-out;
+    z-index: 100; /* Make sure the sidebar is above other content */
 }
 
 .logo img {
@@ -33,23 +38,61 @@ h2 {
     transition: 0.3s;
     font-size: 16px;
 }
-.sidebar-item a{
+.sidebar-item a {
     text-decoration: none;
     color: black;
 }
-.logout a{
+
+.logout a {
     text-decoration: none;
     color: black;
 }
+
 .sidebar-item:hover {
     background-color: #e91e63;
 }
 
+/* Hidden elements */
 .hidden {
     display: none;
 }
+#hamburger {
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 101; /* Make sure it's above the sidebar */
+}
 
+/* Close Icon inside Sidebar */
+#closeSidebar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+}
 
+/* Media Query for Large Screens (Sidebar always visible) */
+@media (min-width: 768px) {
+    /* Sidebar should always be visible */
+    .sidebar {
+        left: 0;
+    }
+
+    /* Hamburger icon should be hidden on larger screens */
+    #hamburger {
+        display: none;
+    }
+
+    /* Close icon should be hidden on larger screens */
+    #closeSidebar {
+        display: none;
+    }
+}
 .header {
     position: absolute;
     top: 50px; 
@@ -354,4 +397,15 @@ h2 {
 .confirm-booking-btn:disabled {
     background-color: #e91e63;
     cursor: not-allowed;
+}
+@media (max-width: 767px) {
+    /* Sidebar is hidden by default */
+    .sidebar {
+        left: -300px; /* Sidebar is hidden */
+    }
+
+    /* Hamburger icon should be visible on small screens */
+    #hamburger {
+        display: block;
+    }
 }
