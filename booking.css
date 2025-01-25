@@ -1,6 +1,6 @@
 
 .sidebar {
-    width: 250px;
+    width: 300px;
     height: 100%;
     background-color: #ff4081;
     padding: 20px;
@@ -89,11 +89,6 @@ h2 {
     max-width: 65%;
     margin: 5px 0;
 }
-
-.main-content{
-    background-color: orange;
-}
-
 
 @keyframes typing {
     from {
@@ -347,4 +342,9 @@ h2 {
 .confirm-booking-btn:disabled {
     background-color: #e91e63;
     cursor: not-allowed;
+}
+/*---------------------------------------css for small screens---------------------------------------*/
+
+@media only screen and (max-width: 600px) {
+    
 }
