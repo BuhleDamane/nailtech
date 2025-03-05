@@ -365,7 +365,7 @@ h2 {
     overflow: hidden;
     flex-basis: 100%; 
     max-width: 100%;
-    overflow-y: auto; /
+    overflow-y: auto; 
 }
 
 .logo img {
@@ -498,6 +498,14 @@ h2 {
 
 .booking-container p{
     font-size: 12px;
+}
+
+.date-time-section h3{
+    font-size: 15px;
+}
+
+.appointmentDate, .appointmentTime label{
+    font-size: 10px;
 }
 .booking-info {
     font-size: 15px;
