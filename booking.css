@@ -428,7 +428,7 @@ h2 {
 
 #welcomeMessagePart1,
 #welcomeMessagePart2 {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     color: black;
     white-space: nowrap;
@@ -489,7 +489,7 @@ h2 {
 }
 
 .booking-container h2 {
-    font-size: 20px;
+    font-size: 25px;
     color: #ff4081;
     text-align: center ;
     margin-bottom: 10px;
@@ -497,11 +497,11 @@ h2 {
 }
 
 .booking-container p{
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .date-time-section h3{
-    font-size: 15px;
+    font-size: 17px;
 }
 
 .appointmentDate, .appointmentTime label{
@@ -701,3 +701,354 @@ h2 {
     cursor: not-allowed;
 }
 }
+@media (min-width: 770px) and (max-width: 832px) {
+    .container {
+        display: flex;
+        flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+        width: 100%;
+    }
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        background-color: #ff4081;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: left 0.3s ease-in-out;
+        overflow: hidden;
+        flex-basis: 28%; 
+        max-width: 28%;
+        overflow-y: auto; /
+    }
+    
+    .logo img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+    h2 {
+        color: black;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .sidebar-item {
+        width: 100%;
+        padding: 10px;
+        background-color: white;
+        border-radius: 5px;
+        text-align: center;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 16px;
+    }
+    .sidebar-item a {
+        text-decoration: none;
+        color: black;
+    }
+    
+    .logout a {
+        text-decoration: none;
+        color: black;
+    }
+    
+    .sidebar-item:hover {
+        background-color: #e91e63;
+    }
+    
+    
+    .hidden {
+        display: none;
+    }
+    
+    .main-content {
+        flex-basis: 70%; /* 70% on larger screens */
+        max-width: 60%;
+        padding: 20px; /* Add spacing */
+        flex-grow: 1; /* Allows it to expand */
+        flex-direction: column;
+    }
+    .header {
+        
+        flex-direction: column; 
+        align-items: center;
+        justify-content: center; 
+        width: 100%; 
+        text-align: center;
+    }
+    
+    #welcomeMessagePart1,
+    #welcomeMessagePart2 {
+        font-size: 32px;
+        font-weight: bold;
+        color: black;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 2px solid black; 
+        padding-right: 5px;
+        display: inline-block;
+        max-width: 100%;
+        margin: 5px 0;
+    }
+    
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+        to {
+            width: 100%;
+        }
+    }
+    
+    @keyframes blink {
+        50% {
+            border-color: transparent;
+        }
+    }
+    
+    
+    .typing {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap; 
+        animation: typing 4s steps(30, end) forwards, blink 0.8s infinite;
+    }
+    
+    
+    .profile-container {
+        position: fixed; 
+        top: 10px;
+        right: 20px;
+    }
+    
+    #profilePicture {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+    
+    .booking-container {
+        margin: 0 auto;
+        width: 80%;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 10px;
+        height: 550px;
+        flex-grow: 1; /* Allows it to expand */
+        padding: 20px;
+    }
+    
+    .booking-container h2 {
+        font-size: 25px;
+        color: #ff4081;
+        text-align: center ;
+        margin-bottom: 10px;
+        
+    }
+    
+    .date-time-section{
+        text-align: center;
+    }
+    .booking-info {
+        font-size: 15px;
+        text-align: center;
+        color: black;
+    }
+    
+    .fee-amount {
+        font-weight: bold;
+        color: #ff4081;
+    }
+    
+    
+    .payment-container {
+        width: 60%;
+        max-width: 500px; 
+        margin: 20px auto;
+        padding: 15px;
+        background-color: #ff80ab; 
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    
+    .payment-container h2 {
+        font-size: 17px;
+        color: white;
+        margin-bottom: 10px;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+    .payment-container a{
+        text-decoration: none;
+        color: white;
+    }
+    .payment-option {
+        background-color: #f06292;
+        color: white;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 13px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .payment-option:hover {
+        background-color: #d81b60; 
+    }
+    
+    
+    #banksDropdown {
+        display: none;
+        margin-top: 10px;
+    }
+    
+    #banksList {
+        width: 70%;
+        padding: 8px;
+        font-size: 14px;
+        border-radius: 5px;
+        border: 1px solid #f8c8d1;
+        background-color: #fff;
+    }
+    
+    
+    #bankDetailsForm {
+        display: none;
+        margin-top: 10px;
+    }
+    
+    #bankDetailsForm input {
+        width: 50%;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 6px;
+        border: 1px solid #f8c8d1;
+        font-size: 14px;
+    }
+    
+    #bankDetailsForm button {
+        padding: 10px;
+        background-color: #f06292;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        width: 100%;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    #bankDetailsForm button:hover {
+        background-color: #d81b60;
+    }
+    
+    #paymentConfirmation {
+        display: none;
+        text-align: center;
+        margin-top: 15px;
+    }
+    
+    #paymentConfirmation p {
+        font-size: 16px;
+        color: #d81b60;
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
+    
+    #paymentConfirmation button {
+        padding: 10px;
+        background-color: #f06292;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        margin: 0 10px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    #paymentConfirmation button:hover {
+        background-color: #d81b60; 
+    }
+    
+    
+    #loadingAnimation {
+        display: none;
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    #loadingAnimation p {
+        font-size: 16px;
+        color: #f06292;
+    }
+    
+    @keyframes loading {
+        0% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+    
+    
+    #paymentSuccess {
+        display: none;
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    #paymentSuccess p {
+        font-size: 18px;
+        color: green;
+        font-weight: bold;
+    }
+    
+    
+    .hidden {
+        display: none;
+    }
+    
+    .date-time-section h3{
+        text-align: center;
+    }
+    .confirm-booking-container {
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    .confirm-booking-btn {
+        padding: 10px 20px;
+        background-color: #ff4081;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .confirm-booking-btn:hover {
+        background-color: #e91e63;
+    }
+    
+    .confirm-booking-btn:disabled {
+        background-color: #e91e63;
+        cursor: not-allowed;
+    }
+}
+

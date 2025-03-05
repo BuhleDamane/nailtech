@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const username = localStorage.getItem("clientName") || "User";
 
     const firstMessage = `Good day, ${username}!`;
-    const secondMessage = `How may we take your booking today? 😊`;
+    const secondMessage = `How may we take your booking? 😊`;
 
     let index1 = 0;
     let index2 = 0;
