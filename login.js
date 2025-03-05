@@ -9,7 +9,7 @@ setTimeout(() => {
     alert("Username: admin\nPassword: 1234\n(This is a demo login, just enter these credentials.)");
 }, 3000);
 loginForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
+    event.preventDefault(); 
 
     const username = usernameInput.value.trim();
     const password = passwordInput.value.trim();
@@ -21,17 +21,17 @@ loginForm.addEventListener('submit', function(event) {
     loginMessage.className = "loading";
 
     setTimeout(() => {
-        // Check credentials
+        
         if (username === "admin" && password === "1234") {
             loginMessage.innerHTML = `✅ Success! Welcome, ${capitalizedClientName}!`;
             loginMessage.className = "success";
 
-            // Save client name in localStorage
+          
             localStorage.setItem("clientName", capitalizedClientName);
 
-            // Redirect to booking page after 2 seconds
+           
             setTimeout(() => {
-                window.location.href = "booking.html"; // Ensure booking.html exists
+                window.location.href = "booking.html"; 
             }, 2000);
         } else {
             loginMessage.innerHTML = "❌ Oops! Please check your login details.";

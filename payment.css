@@ -114,7 +114,6 @@ body {
     color: #e91e63;
 }
 
-/* Additional styling for mobile responsiveness */
 @media (max-width: 480px) {
     .payment-header h1 {
         font-size: 20px;
