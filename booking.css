@@ -706,6 +706,9 @@ h2 {
 }
 }
 @media (min-width: 770px) and (max-width: 832px) {
+    body{
+        overflow: hidden;
+    }
     .container {
         display: flex;
         flex-wrap: wrap;
